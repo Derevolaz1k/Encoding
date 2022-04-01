@@ -33,14 +33,18 @@ int main()
 			menu1_1(a);
 
 			while ((sym1 = _getch())) {
+				if (sym1 == 13 && count1_1 == 4)
+					break;
 				switch (sym1)
 				{
 				case 72:count1_1--; break;
 				case 80:count1_1++; break;
-				case 13: 
+				case 13:
 				{
-					switch (count1_1)
-				case 1: {
+					if (count1_1 == 4)
+						break;
+					switch (count1_1) {
+					case 1: {
 						cout << "Enter the text to add: ";
 						getline(cin, userText);
 						cout << "word " + userText << " the codding..." << endl;
@@ -49,10 +53,32 @@ int main()
 						EnCode << coding(userText, code);
 						EnCode.close();
 						system("pause");
-						}
-				}
+					}
+						  break;
+					case 2: {
+						cout << "Enter a message to encrypt: ";
+						getline(cin, userText);
+						cout << "word " + userText << " the codding..." << endl;
+						cout << coding(userText, code) << endl;
+						EnCode.open("encode.txt");
+						EnCode << coding(userText, code);
+						EnCode.close();
+						system("pause");
+					}
+						  break;
+					case 3: {
+						EnCode.open("encode.txt", ios_base::trunc);
+						EnCode.close();
+						cout << "Data deleted..";
+					}
+						  break;
+					
 				default:
 					break;
+					}
+					
+				}
+				
 				}
 				switch (count1_1)
 				{
@@ -75,14 +101,6 @@ int main()
 				}
 			}
 
-			cout << "Enter a message to encrypt: ";
-			getline(cin, userText);
-			cout << "word " + userText << " the codding..." << endl;
-			cout << coding(userText, code) << endl;
-			EnCode.open("encode.txt");
-			EnCode << coding(userText, code);
-			EnCode.close();
-			system("pause");
 		}
 		break;
 		case 2:cout << "Enter encrypted message: ";
