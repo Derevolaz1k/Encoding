@@ -95,7 +95,6 @@ void menu1_1(Interface& a)
 {
 	system("cls");
 	ElMenu(a.EnCode_Add);
-	newElMenu(a.EnCode_Rep);
 	newElMenu(a.EnCode_Clear);
 	newElMenu(a.Exit);
 }
@@ -103,23 +102,13 @@ void menu1_2(Interface& a)
 {
 	system("cls");
 	newElMenu(a.EnCode_Add);
-	ElMenu(a.EnCode_Rep);
-	newElMenu(a.EnCode_Clear);
+	ElMenu(a.EnCode_Clear);
 	newElMenu(a.Exit);
 }
 void menu1_3(Interface& a)
 {
 	system("cls");
 	newElMenu(a.EnCode_Add);
-	newElMenu(a.EnCode_Rep);
-	ElMenu(a.EnCode_Clear);
-	newElMenu(a.Exit);
-}
-void menu1_4(Interface& a)
-{
-	system("cls");
-	newElMenu(a.EnCode_Add);
-	newElMenu(a.EnCode_Rep);
 	newElMenu(a.EnCode_Clear);
 	ElMenu(a.Exit);
 }

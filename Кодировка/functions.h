@@ -10,6 +10,5 @@ void menu3(Interface &a);
 void menu1_1(Interface& a);
 void menu1_2(Interface& a);
 void menu1_3(Interface& a);
-void menu1_4(Interface& a);
 std::string coding( std::string userText,std::string code);
 std::string TTT(int x);
