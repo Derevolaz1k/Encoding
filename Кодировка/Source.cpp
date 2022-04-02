@@ -31,7 +31,7 @@ int main()
 		{
 		case 1:
 		{
-			
+
 			menu1_1(a);
 
 			while ((sym1 = _getch())) {
@@ -39,20 +39,19 @@ int main()
 				{
 					break;
 				}
-					
+
 				switch (sym1)
 				{
 				case 72:count1_1--; break;
 				case 80:count1_1++; break;
 				case 13:
 				{
-					
+
 					if (count1_1 == 3)
 						break;
-					switch (count1_1) {
-					case 1: 
-					{
-						
+					if (count1_1 == 1) {
+
+
 						cout << "Enter the text to add: ";
 						getline(cin, userText);
 						cout << "word " + userText << " the codding..." << endl;
@@ -62,20 +61,13 @@ int main()
 						EnCode.close();
 						system("pause");
 					}
-						  break;
-					case 2: 
-					{
+
+					if (count1_1 == 2)
 						EnCode.open("encode.txt", ofstream::trunc);
-						EnCode.close();
-							cout << "Data deleted..";
-					}
-						  break;
-					
-					default:
-					break;
-					}
-					
+					EnCode.close();
+					cout << "Data deleted..";
 				}
+		
 				
 				}
 				switch (count1_1)
@@ -113,24 +105,7 @@ int main()
 			break;
 		}
 		
-		switch (count)
-		{
-		case 1: menu1(a); break;
-		case 2: menu2(a); break;
-		case 3: menu3(a); break;
-		default:
-			if (count > 3)
-			{
-				count = 1;
-				menu1(a);
-			}
-			if (count < 1)
-			{
-				count = 3;
-				menu3(a);
-			}
-			break;
-		}
+		MainMenu(count, a);
 	}
 	
 	return 0;

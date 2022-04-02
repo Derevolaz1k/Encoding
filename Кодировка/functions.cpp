@@ -51,13 +51,13 @@ void ElMenu(std::string name)
 				if (j >= text && j < kols - text)
 					std::cout << name[j - text];
 				else if (j == 0 || j == kols - 1)
-					std::cout << "$";
+					std::cout << "|";
 				else
 					std::cout << " ";
 			else if (i == 0 || i == rows - 1 || j == 0 || j == kols - 1)
-				std::cout << "$";
+				std::cout << "|";
 			else if (j == kols)
-				std::cout << "$";
+				std::cout << "|";
 			else
 				std::cout << " ";
 		}
@@ -134,4 +134,25 @@ std::string TTT(int x)
 	if (x2th.size() < 7)
 		x2th += "0";
 	return x2th;
+}
+void MainMenu(int count, Interface a)
+{
+	switch (count)
+	{
+	case 1: menu1(a); break;
+	case 2: menu2(a); break;
+	case 3: menu3(a); break;
+	default:
+		if (count > 3)
+		{
+			count = 1;
+			menu1(a);
+		}
+		if (count < 1)
+		{
+			count = 3;
+			menu3(a);
+		}
+		break;
+	}
 }
