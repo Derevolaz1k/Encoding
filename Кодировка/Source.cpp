@@ -72,6 +72,7 @@ int main()
 					}break;
 					case 2:
 					{
+						char letter;
 						int length = 0;
 						int* indexArr = new int[length];
 						userText = "";
@@ -86,8 +87,9 @@ int main()
 						DeCode.close();
 						for (int i = 0; i < userText.size(); i += 6)
 						{
-							resizeArr(indexArr,length,TwoToTen(userText, i));
-							cout << TwoToTen(userText, i)<<"\t";
+							//resizeArr(indexArr,length,TwoToTen(userText, i));
+							letter = (int)TwoToTen(userText, i);
+							cout << letter;
 						}
 						
 						system("pause");

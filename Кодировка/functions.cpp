@@ -153,7 +153,7 @@ int TwoToTen(std::string &x,int &i)
 	}
 	return n;
 }
-void resizeArr(int*& arr, int &length, int num)
+void resizeArr(int*&arr, int &length, int num)
 {
 	length += 1;
 	int* arr2 = new int[length];
