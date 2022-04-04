@@ -119,11 +119,11 @@ std::string coding(std::string userText,std::string code)
 	for (int i = 0; i < userText.size(); i++)
 	{
 		x = (int)userText[i];
-		code+=TTT(x);
+		code+= TenToTwo(x);
 	}
 	return code;
 }
-std::string TTT(int x)
+std::string TenToTwo(int x)
 {
 	std::string x2th="";
 	do
@@ -134,6 +134,25 @@ std::string TTT(int x)
 	if (x2th.size() < 7)
 		x2th += "0";
 	return x2th;
+}
+int TwoToTen(std::string &x)
+{
+	int count = 6;
+	int n = stoi(x);
+	int temp;
+	int res=0;
+	while (n/10>10)
+	{
+		temp = (n % 10);
+		for (int i = 0; i < count; i++)
+			temp *= 2;
+		n /= 10;
+		count--;
+		res += temp;
+	}
+	if (n == 1)
+		res += 1;
+	return res;
 }
 void MainMenu(int count, Interface a)
 {
@@ -152,6 +171,27 @@ void MainMenu(int count, Interface a)
 		{
 			count = 3;
 			menu3(a);
+		}
+		break;
+	}
+}
+void MainMenu1_1(int count1_1, Interface a)
+{
+	switch (count1_1)
+	{
+	case 1: menu1_1(a); break;
+	case 2: menu1_2(a); break;
+	case 3: menu1_3(a); break;
+	default:
+		if (count1_1 > 3)
+		{
+			count1_1 = 1;
+			menu1_1(a);
+		}
+		if (count1_1 < 1)
+		{
+			count1_1 = 3;
+			menu1_3(a);
 		}
 		break;
 	}
