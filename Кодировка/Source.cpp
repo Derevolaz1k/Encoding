@@ -91,7 +91,7 @@ int main()
 							letter = (int)TwoToTen(userText, i);
 							cout << letter;
 						}
-						
+						cout << endl;
 						system("pause");
 					}break;
 					case 3:
