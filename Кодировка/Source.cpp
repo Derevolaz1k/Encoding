@@ -74,7 +74,7 @@ int main()
 					{
 						char letter;
 						int length = 0;
-					//	int* indexArr = new int[length];
+						//int* indexArr = new int[length];
 						userText = "";
 						ifstream DeCode("encode.txt");
 						getline(DeCode, userText);

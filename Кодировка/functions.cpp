@@ -112,7 +112,6 @@ void menu1_3(Interface& a)
 	newElMenu(a.EnCode_Clear);
 	ElMenu(a.Exit);
 }
-
 std::string coding(std::string userText,std::string code)
 {
 	unsigned int x;
