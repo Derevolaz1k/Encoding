@@ -12,7 +12,6 @@ int main()
 	setlocale(LC_ALL, "Ru");
 	Interface a;
 	ofstream EnCode("encode.txt", ofstream::app);
-	ifstream DeCode("encode.txt");
 	ElMenu(a.EnCode);
 	newElMenu(a.DeCode);
 	newElMenu(a.Exit);
@@ -73,9 +72,10 @@ int main()
 					}break;
 					case 2:
 					{
-						/*userText = "";
-						code = "";
-						DeCode.open("encode.txt");
+						int length = 0;
+						int* indexArr = new int[length];
+						userText = "";
+						ifstream DeCode("encode.txt");
 						getline(DeCode, userText);
 						if (userText == "")
 						{
@@ -84,14 +84,13 @@ int main()
 							break;
 						}
 						DeCode.close();
-						for (int i = 0; i < userText.size(); i++)
+						for (int i = 0; i < userText.size(); i += 6)
 						{
-							code += userText[i];
+							resizeArr(indexArr,length,TwoToTen(userText, i));
+							cout << TwoToTen(userText, i)<<"\t";
 						}
-						cout << TwoToTen(code);
-						cout << endl;
-						cout << userText;
-						system("pause");*/
+						
+						system("pause");
 					}break;
 					case 3:
 					{

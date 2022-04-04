@@ -135,24 +135,43 @@ std::string TenToTwo(int x)
 		x2th += "0";
 	return x2th;
 }
-int TwoToTen(std::string &x)
+int TwoToTen(std::string &x,int &i)
 {
-	int count = 6;
-	int n = stoi(x);
-	int temp;
-	int res=0;
-	while (n/10>10)
+	int n=0;
+	int count = 0;
 	{
-		temp = (n % 10);
-		for (int i = 0; i < count; i++)
-			temp *= 2;
-		n /= 10;
-		count--;
-		res += temp;
+		n = 0;
+		for (int j = i; j < i + 7; j++)
+		{
+			if (j == i && (x[j] - 48) == 1)
+				n += 1;
+			else if ((x[j] - 48) == 1)
+				n += myPow(x[j], count-1);//minus 1, becouse 2th system,and first number have zero index
+			count++;
+		}
+		i++;
 	}
-	if (n == 1)
-		res += 1;
-	return res;
+	return n;
+}
+void resizeArr(int*& arr, int &length, int num)
+{
+	length += 1;
+	int* arr2 = new int[length];
+	for (int i = 0; i < length; i++)
+	{
+		if (i == length - 1)
+			arr2[i] = num;
+		else
+		arr2[i] = arr[i];
+	}
+	delete[]arr;
+	arr = new int[length];
+	for (int i = 0; i < length; i++)
+	{
+		arr[i] = arr2[i];
+	}
+	delete[]arr2;
+	arr2 = arr;
 }
 void MainMenu(int count, Interface a)
 {
@@ -195,4 +214,14 @@ void MainMenu1_1(int count1_1, Interface a)
 		}
 		break;
 	}
+}
+int myPow(int a, int b)
+{
+	if (a == 0)
+		return 0;
+	a = 2;
+	int temp = a;
+	for (int i = 0; i < b; i++)
+		a *= temp;
+	return a;
 }
