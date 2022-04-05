@@ -5,16 +5,15 @@
 #include "structures.h"
 #include <fstream>
 
-using namespace std;
 
+using namespace std;
 int main()
 {
+	system("color 0A");
 	setlocale(LC_ALL, "Ru");
 	Interface a;
 	ofstream EnCode("encode.txt", ofstream::app);
-	ElMenu(a.EnCode);
-	newElMenu(a.DeCode);
-	newElMenu(a.Exit);
+	MainMenu(1, a);
 	char sym;
 	char sym1;
 	int count = 1;

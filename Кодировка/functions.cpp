@@ -1,7 +1,6 @@
 #include "functions.h"
 #include "structures.h"
 #include <string>
-
 void newElMenu(std::string name)
 {
 	int text;
