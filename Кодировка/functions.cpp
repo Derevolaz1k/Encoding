@@ -1,5 +1,4 @@
 #include "functions.h"
-#include "structures.h"
 #include <string>
 void newElMenu(std::string name)
 {
@@ -151,28 +150,7 @@ int TwoToTen(std::string &x,int &i)
 	}
 	return n;
 }
-
-//void resizeArr(int*&arr, int &length, int num)
-//{
-//	length += 1;
-//	int* arr2 = new int[length];
-//	for (int i = 0; i < length; i++)
-//	{
-//		if (i == length - 1)
-//			arr2[i] = num;
-//		else
-//		arr2[i] = arr[i];
-//	}
-//	delete[]arr;
-//	arr = new int[length];
-//	for (int i = 0; i < length; i++)
-//	{
-//		arr[i] = arr2[i];
-//	}
-//	delete[]arr2;
-//	arr2 = arr;
-//}
-void MainMenu(int count, Interface a)
+void MainMenu(int &count, Interface a)
 {
 	switch (count)
 	{
@@ -193,7 +171,7 @@ void MainMenu(int count, Interface a)
 		break;
 	}
 }
-void MainMenu1_1(int count1_1, Interface a)
+void MainMenu1_1(int &count1_1, Interface a)
 {
 	switch (count1_1)
 	{

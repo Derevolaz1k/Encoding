@@ -2,7 +2,6 @@
 #include <string>
 #include<conio.h>
 #include "functions.h"
-#include "structures.h"
 #include <fstream>
 
 
@@ -11,43 +10,48 @@ int main()
 {
 	system("color 0A");
 	setlocale(LC_ALL, "Ru");
-	Interface a;
-	ofstream EnCode("encode.txt", ofstream::app);
-	MainMenu(1, a);
-	char sym;
+	Interface InterfaceJbject;
+	ofstream EnCode("encode.txt", ofstream::app);//creating a text file
+	EnCode.close();
+	char symbolMenu;
 	char sym1;
-	int count = 1;
-	int count1_1 = 1;
+	int countMenu = 1;//counter tabs in mein menu
+	int countMenu1_1 = 1;//counter tabs in secondary menu
+	MainMenu(countMenu, InterfaceJbject);//Conclution Mein menu
 	string userText = "";//Before processing
 	string code = "";//After processing
-	while (sym = _getch()) 
+	while (symbolMenu = _getch())//Always update press button in mein menu
 	{
-		switch (sym)
+		switch (symbolMenu)
 		{
-			case 72:count--; break;//up
-			case 80:count++; break;//down
+			case 72:countMenu--; 
+				break;//up
+			case 80:countMenu++; 
+				break;//down
 			case 13: //enter
 			{
-				switch (count)
+				switch (countMenu)
 				{
-					case 1:
+					case 1://First tab in main menu
 					{
-						menu1_1(a);
-						while ((sym1 = _getch()))
+						menu1_1(InterfaceJbject);
+						while (sym1 = _getch()) //Always update press button in secondary menu
 						{
-							if (sym1 == 13 && count1_1 == 3)
+							if (sym1 == 13 && countMenu1_1 == 3)//exit in main menu
 							{
-								count = 1;
-								count1_1 = 1;
+								countMenu = 1;
+								countMenu1_1 = 1;
 								break;
 							}
 							switch (sym1)
 							{
-								case 72:count1_1--; break;
-								case 80:count1_1++; break;
+								case 72:countMenu1_1--;
+									break;
+								case 80:countMenu1_1++;
+									break;
 								case 13:
 								{
-									if (count1_1 == 1)
+									if (countMenu1_1 == 1)//first tab(add text and coding)
 									{
 										cout << "Enter the text to add: ";
 										getline(cin, userText);
@@ -58,7 +62,7 @@ int main()
 										EnCode.close();
 										system("pause");
 									}
-									if (count1_1 == 2)
+									if (countMenu1_1 == 2)//second tab(delete text)
 									{
 										EnCode.open("encode.txt", ofstream::trunc);
 										EnCode.close();
@@ -66,10 +70,11 @@ int main()
 									}
 								}
 							}
-							MainMenu1_1(count1_1, a);
+							MainMenu1_1(countMenu1_1, InterfaceJbject);//update secondary menu
 						}
-					}break;
-					case 2:
+					}
+					break;
+					case 2://decoding
 					{
 						char letter;
 						int length = 0;
@@ -86,7 +91,6 @@ int main()
 						DeCode.close();
 						for (int i = 0; i < userText.size(); i += 6)
 						{
-							//resizeArr(indexArr,length,TwoToTen(userText, i));
 							letter = (int)TwoToTen(userText, i);
 							cout << letter;
 						}
@@ -95,13 +99,13 @@ int main()
 					}break;
 					case 3:
 					{
-					cout << "Exit...";
-					return 0;
+						cout << "Exit...";
+						return 0;
 					}break;
 				}break;
 			}break;
 		}
-		MainMenu(count, a);
+		MainMenu(countMenu, InterfaceJbject);//update main menu
 	}
 	
 	return 0;
